@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol SearchContainerDelegateProtocol: AnyObject {
-  
-  var didPressReturn: (() -> Void)? { get set }
-  
-}
-
 final class SearchContainer: UIView {
   
   @IBOutlet private weak var searchContainer: SearchContainer!
@@ -128,7 +122,8 @@ extension SearchContainer: UITextFieldDelegate {
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
-    delegate?.didPressReturn?()
+    guard let text = textField.text, !text.isEmpty else { return true }
+    delegate?.didPressReturn?(text)
     return true
   }
   

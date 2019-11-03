@@ -6,29 +6,64 @@
 //  Copyright © 2019 Владимир Нереуца. All rights reserved.
 //
 
+import Alamofire
+
+protocol CatalogControllerDelegateProtocol: AnyObject {
+  
+  var succes: ((SearchResponse) -> Void)? { get set }
+  var failure: ((Error) -> Void)? { get set }
+  var update: ((SearchResponse) -> Void)? { get set }
+  func loadData(for searchText: String)
+  
+}
+
 final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
   
-  var searchContainerDelegate: SearchContainerDelegate?
+  var textForSearch: String?
   
-  // success: (Type) -> Void
-  // error:   (Error) -> Void
+  var succes: ((SearchResponse) -> Void)?
+  var failure: ((Error) -> Void)?
+  var update: ((SearchResponse) -> Void)?
   
-  var text: String = ""
+  var needToLoadNextPage: (() -> Void)?
+  
+  let searchContainerDelegate: SearchContainerDelegate
   
   init() {
-    // 
+    searchContainerDelegate = SearchContainerDelegate()
+    setupClosures()
   }
   
   func setupClosures() {
-    
+    searchContainerDelegate.didPressReturn = { [weak self] in
+      self?.loadData(for: $0)
+    }
+    needToLoadNextPage = {
+      RequestManager.shared
+        .loadNextPage(self.textForSearch!, completion: { [weak self] result in
+          switch result {
+           case .success(let response):
+             self?.update?(response)
+             
+           case .failure(let error):
+             self?.failure?(error)
+           }
+      })
+    }
+
   }
   
-  func loadData() {
-    // requestManager
+  func loadData(for searchText: String) {
+    textForSearch = searchText
+    RequestManager.shared
+      .loadData(searchText) { [weak self] result in
+        switch result {
+        case .success(let response):
+          self?.succes?(response)
+          
+        case .failure(let error):
+          self?.failure?(error)
+        }
+    }
   }
-  
-  // Result<Data, Error>
-  private func handleRequest() {
-  }
-  
 }

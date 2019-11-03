@@ -10,6 +10,7 @@
 		7E250B8A236EE54E00652326 /* UIView+SetBorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B89236EE54E00652326 /* UIView+SetBorders.swift */; };
 		7E250B8D236EEE2B00652326 /* CatalogViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B8C236EEE2B00652326 /* CatalogViewControllerDelegate.swift */; };
 		7E250B8F236EEFEA00652326 /* SearchContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B8E236EEFEA00652326 /* SearchContainerDelegate.swift */; };
+		7E351500236F58B800B2A92F /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3514FF236F58B800B2A92F /* UIViewController+Alert.swift */; };
 		7E967798236AD65800FEC0AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E967797236AD65800FEC0AA /* AppDelegate.swift */; };
 		7E96779A236AD65800FEC0AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E967799236AD65800FEC0AA /* SceneDelegate.swift */; };
 		7E96779C236AD65800FEC0AA /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E96779B236AD65800FEC0AA /* CatalogViewController.swift */; };
@@ -18,7 +19,6 @@
 		7E9677A4236AD65C00FEC0AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9677A2236AD65C00FEC0AA /* LaunchScreen.storyboard */; };
 		7E9677AC236AD85A00FEC0AA /* SearchContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9677AB236AD85A00FEC0AA /* SearchContainer.xib */; };
 		7E9677AE236AD8D600FEC0AA /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9677AD236AD8D600FEC0AA /* SearchContainer.swift */; };
-		7EAEAE94236C34F20062C167 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAEAE93236C34F20062C167 /* search_icon.png */; };
 		7EF4CBD2236ECD2C00823722 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4CBD1236ECD2C00823722 /* RequestManager.swift */; };
 		7EF4CBD4236ED89E00823722 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4CBD3236ED89E00823722 /* SearchResponse.swift */; };
 		7EF4CBD7236EE11D00823722 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4CBD6236EE11D00823722 /* UIColor+Colors.swift */; };
@@ -30,6 +30,7 @@
 		7E250B89236EE54E00652326 /* UIView+SetBorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SetBorders.swift"; sourceTree = "<group>"; };
 		7E250B8C236EEE2B00652326 /* CatalogViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewControllerDelegate.swift; sourceTree = "<group>"; };
 		7E250B8E236EEFEA00652326 /* SearchContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainerDelegate.swift; sourceTree = "<group>"; };
+		7E3514FF236F58B800B2A92F /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		7E967794236AD65800FEC0AA /* ProgressTerraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgressTerraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E967797236AD65800FEC0AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E967799236AD65800FEC0AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		7E9677A5236AD65C00FEC0AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E9677AB236AD85A00FEC0AA /* SearchContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchContainer.xib; sourceTree = "<group>"; };
 		7E9677AD236AD8D600FEC0AA /* SearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainer.swift; sourceTree = "<group>"; };
-		7EAEAE93236C34F20062C167 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
 		7EF4CBD1236ECD2C00823722 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		7EF4CBD3236ED89E00823722 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		7EF4CBD6236EE11D00823722 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				7EF4CBCE236ECA1A00823722 /* SearchContainer */,
-				7E96779B236AD65800FEC0AA /* CatalogViewController.swift */,
 				7E250B8C236EEE2B00652326 /* CatalogViewControllerDelegate.swift */,
+				7E96779B236AD65800FEC0AA /* CatalogViewController.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -108,7 +108,6 @@
 				7EF4CBD3236ED89E00823722 /* SearchResponse.swift */,
 				7E96779D236AD65800FEC0AA /* Main.storyboard */,
 				7E9677A0236AD65C00FEC0AA /* Assets.xcassets */,
-				7EAEAE93236C34F20062C167 /* search_icon.png */,
 				7E9677A2236AD65C00FEC0AA /* LaunchScreen.storyboard */,
 				7E9677A5236AD65C00FEC0AA /* Info.plist */,
 			);
@@ -130,6 +129,7 @@
 			children = (
 				7EF4CBD6236EE11D00823722 /* UIColor+Colors.swift */,
 				7E250B89236EE54E00652326 /* UIView+SetBorders.swift */,
+				7E3514FF236F58B800B2A92F /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,7 +202,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EAEAE94236C34F20062C167 /* search_icon.png in Resources */,
 				7E9677AC236AD85A00FEC0AA /* SearchContainer.xib in Resources */,
 				7E9677A4236AD65C00FEC0AA /* LaunchScreen.storyboard in Resources */,
 				7E9677A1236AD65C00FEC0AA /* Assets.xcassets in Resources */,
@@ -263,6 +262,7 @@
 				7EF4CBD7236EE11D00823722 /* UIColor+Colors.swift in Sources */,
 				7E9677AE236AD8D600FEC0AA /* SearchContainer.swift in Sources */,
 				7E96779C236AD65800FEC0AA /* CatalogViewController.swift in Sources */,
+				7E351500236F58B800B2A92F /* UIViewController+Alert.swift in Sources */,
 				7E250B8D236EEE2B00652326 /* CatalogViewControllerDelegate.swift in Sources */,
 				7E967798236AD65800FEC0AA /* AppDelegate.swift in Sources */,
 				7EF4CBD2236ECD2C00823722 /* RequestManager.swift in Sources */,

@@ -11,20 +11,52 @@ import SwiftyJSON
 
 final class RequestManager {
   
+  static let shared = RequestManager()
+  
+  var currentPage = 1
+  var totalPages: Int?
+  
   private var headers: HTTPHeaders = ["AccessKey": "test_05fc5ed1-0199-4259-92a0-2cd58214b29c",
                                       "IDCategory": "",
                                       "IDClient": "",
                                       "pageNumberIncome": "1",
-                                      "pageSizeIncome": "12"]
+                                      "pageSizeIncome": "30"]
   
-  func loadData(_ searchString: String, completion: @escaping ((Result<SearchResponse, AFError>) -> Void)) {
+  func loadData(_ searchString: String, completion: @escaping ((Swift.Result<SearchResponse, Error>) -> Void)) {
+    currentPage = 1
+    headers["pageNumberIncome"] = String(currentPage)
     let parameters: Parameters = ["SearchString": searchString]
-    AF.request("http://iswiftdata.1c-work.net/api/products/searchproductsbycategory",
-               method: .get,
-               parameters: parameters,
-               encoding: URLEncoding.default,
-               headers: headers,
-               interceptor: nil)
+
+    Alamofire.request("http://iswiftdata.1c-work.net/api/products/searchproductsbycategory",
+                      method: .get,
+                      parameters: parameters,
+                      encoding: URLEncoding.default,
+                      headers: headers)
+      .validate()
+      .responseJSON { responseJSON in
+        switch responseJSON.result {
+        case .success(let value):
+          let json = JSON(value)
+          let response = SearchResponse(data: json)
+          self.totalPages = response.totalPage
+          completion(.success(response))
+          
+        case .failure(let error):
+          completion(.failure(error))
+        }
+    }
+  }
+  
+  func loadNextPage(_ searchString: String, completion: @escaping ((Swift.Result<SearchResponse, Error>) -> Void)) {
+    currentPage += 1
+    headers["pageNumberIncome"] = String(currentPage)
+    let parameters: Parameters = ["SearchString": searchString]
+
+    Alamofire.request("http://iswiftdata.1c-work.net/api/products/searchproductsbycategory",
+                      method: .get,
+                      parameters: parameters,
+                      encoding: URLEncoding.default,
+                      headers: headers)
       .validate()
       .responseJSON { responseJSON in
         switch responseJSON.result {
@@ -37,6 +69,7 @@ final class RequestManager {
           completion(.failure(error))
         }
     }
+    
   }
   
 }

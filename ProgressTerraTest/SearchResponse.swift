@@ -15,10 +15,10 @@ struct SearchResponse {
   let listProducts: [Product]
   
   init(data: JSON) {
-    countItemsInPage = data["countItemsInPage"].intValue
-    totalPage = data["totalPage"].intValue
-    numberCurrentPage = data ["numberCurrentPage"].intValue
-    let tempProducts = data["listProducts"].arrayValue.map { Product($0["idUnique"].stringValue,
+    countItemsInPage = data["data"]["countItemsInPage"].intValue
+    totalPage = data["data"]["totalPage"].intValue
+    numberCurrentPage = data["data"]["numberCurrentPage"].intValue
+    let tempProducts = data["data"]["listProducts"].arrayValue.map { Product($0["idUnique"].stringValue,
                                                                      $0["idCategory"].stringValue,
                                                                      $0["name"].stringValue) }
     listProducts = tempProducts

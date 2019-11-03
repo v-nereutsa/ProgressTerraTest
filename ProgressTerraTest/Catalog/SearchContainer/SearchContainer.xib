@@ -39,7 +39,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O84-6J-XYD">
                     <rect key="frame" x="6" y="7" width="23" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="search_icon.png" backgroundImage="search_icon.png"/>
+                    <state key="normal" image="search_icon" backgroundImage="search_icon"/>
                     <connections>
                         <action selector="touchSearchButton:" destination="-1" eventType="touchUpInside" id="9Rr-NF-Rv9"/>
                     </connections>
@@ -51,6 +51,6 @@
         </view>
     </objects>
     <resources>
-        <image name="search_icon.png" width="3000" height="3000"/>
+        <image name="search_icon" width="1500" height="1500"/>
     </resources>
 </document>
