@@ -23,8 +23,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-hn-hkW">
-                                <rect key="frame" x="0.0" y="99" width="414" height="797"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="768" id="uDm-Xg-9NW"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductsCell" id="RGy-WT-IAl">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -36,21 +39,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Общее количество:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz3-Gb-99u">
+                                <rect key="frame" x="128.5" y="99" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sak-nw-nBg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="19" id="0FK-Ur-Rk5"/>
                             <constraint firstItem="OPx-hn-hkW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="70j-kC-Ka2"/>
+                            <constraint firstItem="OPx-hn-hkW" firstAttribute="top" secondItem="fz3-Gb-99u" secondAttribute="bottom" constant="8" id="9lt-aV-jRB"/>
+                            <constraint firstItem="OPx-hn-hkW" firstAttribute="centerX" secondItem="fz3-Gb-99u" secondAttribute="centerX" id="Tca-Dz-Dey"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sak-nw-nBg" secondAttribute="trailing" constant="20" id="Vae-Vn-S4w"/>
                             <constraint firstItem="OPx-hn-hkW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="biT-Ju-nIC"/>
                             <constraint firstItem="sak-nw-nBg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="hTo-28-twO"/>
                             <constraint firstAttribute="bottom" secondItem="OPx-hn-hkW" secondAttribute="bottom" id="ldo-eI-T8O"/>
-                            <constraint firstItem="OPx-hn-hkW" firstAttribute="top" secondItem="sak-nw-nBg" secondAttribute="bottom" constant="8" id="qqE-79-t4c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="contentTable" destination="OPx-hn-hkW" id="TEu-1d-AWS"/>
+                        <outlet property="productsCount" destination="fz3-Gb-99u" id="9wT-fR-HQv"/>
                         <outlet property="searchContainer" destination="sak-nw-nBg" id="tkB-uM-Qs7"/>
                     </connections>
                 </viewController>

@@ -33,12 +33,12 @@ final class RequestManager {
                       encoding: URLEncoding.default,
                       headers: headers)
       .validate()
-      .responseJSON { responseJSON in
+      .responseJSON { [weak self] responseJSON in
         switch responseJSON.result {
         case .success(let value):
           let json = JSON(value)
           let response = SearchResponse(data: json)
-          self.totalPages = response.totalPage
+          self?.totalPages = response.totalPage
           completion(.success(response))
           
         case .failure(let error):

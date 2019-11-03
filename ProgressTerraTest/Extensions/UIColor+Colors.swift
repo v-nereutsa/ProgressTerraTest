@@ -10,6 +10,6 @@ import UIKit
 
 extension UIColor {
   
-  static let blueBell: UIColor = UIColor(red: 145 / 256.0, green: 147 / 256.0, blue: 214 / 256.0, alpha: 1)
+  static let blueBell = UIColor(red: 145 / 256.0, green: 147 / 256.0, blue: 214 / 256.0, alpha: 1)
   
 }

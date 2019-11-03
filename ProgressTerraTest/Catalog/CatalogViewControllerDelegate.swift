@@ -13,13 +13,14 @@ protocol CatalogControllerDelegateProtocol: AnyObject {
   var succes: ((SearchResponse) -> Void)? { get set }
   var failure: ((Error) -> Void)? { get set }
   var update: ((SearchResponse) -> Void)? { get set }
+  
   func loadData(for searchText: String)
   
 }
 
 final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
   
-  var textForSearch: String?
+  var textForSearch = ""
   
   var succes: ((SearchResponse) -> Void)?
   var failure: ((Error) -> Void)?
@@ -36,22 +37,21 @@ final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
   
   func setupClosures() {
     searchContainerDelegate.didPressReturn = { [weak self] in
+      print("is main thread: ", Thread.isMainThread)
       self?.loadData(for: $0)
     }
-    needToLoadNextPage = {
-      RequestManager.shared
-        .loadNextPage(self.textForSearch!, completion: { [weak self] result in
-          switch result {
-           case .success(let response):
-             self?.update?(response)
-             
-           case .failure(let error):
-             self?.failure?(error)
-           }
-      })
+    
+    needToLoadNextPage = { [weak self] in
+      // проверить
+      print("is main thread: ", Thread.isMainThread)
+      self?.loadNextPage()
     }
-
   }
+  
+}
+
+// MARK: - Network request
+extension CatalogViewControllerDelegate {
   
   func loadData(for searchText: String) {
     textForSearch = searchText
@@ -66,4 +66,18 @@ final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
         }
     }
   }
+  
+  func loadNextPage() {
+    RequestManager.shared
+      .loadNextPage(textForSearch, completion: { [weak self] result in
+        switch result {
+        case .success(let response):
+          self?.update?(response)
+          
+        case .failure(let error):
+          self?.failure?(error)
+        }
+      })
+  }
+  
 }

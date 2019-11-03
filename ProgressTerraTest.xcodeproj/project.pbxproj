@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0556FE0D236F6B7F00349A67 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556FE0C236F6B7F00349A67 /* UIViewController+DismissKeyboard.swift */; };
 		7E250B8A236EE54E00652326 /* UIView+SetBorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B89236EE54E00652326 /* UIView+SetBorders.swift */; };
 		7E250B8D236EEE2B00652326 /* CatalogViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B8C236EEE2B00652326 /* CatalogViewControllerDelegate.swift */; };
 		7E250B8F236EEFEA00652326 /* SearchContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E250B8E236EEFEA00652326 /* SearchContainerDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0556FE0C236F6B7F00349A67 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		1D5067522789AC259191033D /* Pods-ProgressTerraTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgressTerraTest.release.xcconfig"; path = "Target Support Files/Pods-ProgressTerraTest/Pods-ProgressTerraTest.release.xcconfig"; sourceTree = "<group>"; };
 		7E250B89236EE54E00652326 /* UIView+SetBorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SetBorders.swift"; sourceTree = "<group>"; };
 		7E250B8C236EEE2B00652326 /* CatalogViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0556FE08236F5EE000349A67 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				7E250B8E236EEFEA00652326 /* SearchContainerDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		0556FE09236F65D100349A67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0556FE0A236F65DA00349A67 /* Storyboards */,
+				7E9677A0236AD65C00FEC0AA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0556FE0A236F65DA00349A67 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7E96779D236AD65800FEC0AA /* Main.storyboard */,
+				7E9677A2236AD65C00FEC0AA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0556FE0B236F686C00349A67 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7EF4CBD1236ECD2C00823722 /* RequestManager.swift */,
+				7EF4CBD3236ED89E00823722 /* SearchResponse.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		15CD6F75C96CF1404ACC7066 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,15 +137,12 @@
 		7E967796236AD65800FEC0AA /* ProgressTerraTest */ = {
 			isa = PBXGroup;
 			children = (
-				7EF4CBD5236EE0F000823722 /* Extensions */,
 				7E967797236AD65800FEC0AA /* AppDelegate.swift */,
 				7E967799236AD65800FEC0AA /* SceneDelegate.swift */,
 				7E250B8B236EEC5200652326 /* Catalog */,
-				7EF4CBD1236ECD2C00823722 /* RequestManager.swift */,
-				7EF4CBD3236ED89E00823722 /* SearchResponse.swift */,
-				7E96779D236AD65800FEC0AA /* Main.storyboard */,
-				7E9677A0236AD65C00FEC0AA /* Assets.xcassets */,
-				7E9677A2236AD65C00FEC0AA /* LaunchScreen.storyboard */,
+				0556FE0B236F686C00349A67 /* NetworkLayer */,
+				7EF4CBD5236EE0F000823722 /* Extensions */,
+				0556FE09236F65D100349A67 /* Resources */,
 				7E9677A5236AD65C00FEC0AA /* Info.plist */,
 			);
 			path = ProgressTerraTest;
@@ -117,9 +151,9 @@
 		7EF4CBCE236ECA1A00823722 /* SearchContainer */ = {
 			isa = PBXGroup;
 			children = (
+				0556FE08236F5EE000349A67 /* Delegate */,
 				7E9677AB236AD85A00FEC0AA /* SearchContainer.xib */,
 				7E9677AD236AD8D600FEC0AA /* SearchContainer.swift */,
-				7E250B8E236EEFEA00652326 /* SearchContainerDelegate.swift */,
 			);
 			path = SearchContainer;
 			sourceTree = "<group>";
@@ -130,6 +164,7 @@
 				7EF4CBD6236EE11D00823722 /* UIColor+Colors.swift */,
 				7E250B89236EE54E00652326 /* UIView+SetBorders.swift */,
 				7E3514FF236F58B800B2A92F /* UIViewController+Alert.swift */,
+				0556FE0C236F6B7F00349A67 /* UIViewController+DismissKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +303,7 @@
 				7EF4CBD2236ECD2C00823722 /* RequestManager.swift in Sources */,
 				7E96779A236AD65800FEC0AA /* SceneDelegate.swift in Sources */,
 				7E250B8F236EEFEA00652326 /* SearchContainerDelegate.swift in Sources */,
+				0556FE0D236F6B7F00349A67 /* UIViewController+DismissKeyboard.swift in Sources */,
 				7E250B8A236EE54E00652326 /* UIView+SetBorders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

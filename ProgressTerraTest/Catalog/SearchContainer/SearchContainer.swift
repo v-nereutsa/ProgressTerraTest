@@ -63,9 +63,9 @@ extension SearchContainer {
   
   private func setupAppearance() {
     searchTextField.attributedPlaceholder = NSAttributedString(string: "Поиск",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.blueBell])
-    borderView.setBorders(color: .blueBell, width: 1, cornerRadius: 5)
-    searchButtonBorder.setBorders(color: .blueBell, width: 1, cornerRadius: 5)
+                                                               attributes: [.foregroundColor: UIColor.blueBell])
+    borderView.setBorder(color: .blueBell, width: 1, cornerRadius: 5)
+    searchButtonBorder.setBorder(color: .blueBell, width: 1, cornerRadius: 5)
   }
   
   private func updateUI(for state: SearchContainerStates) {
@@ -104,8 +104,10 @@ extension SearchContainer {
         })
     }
   }
+  
 }
 
+// MARK: - UITextFieldDelegate
 extension SearchContainer: UITextFieldDelegate {
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
