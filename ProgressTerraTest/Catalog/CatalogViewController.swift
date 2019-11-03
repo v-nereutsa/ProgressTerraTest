@@ -27,9 +27,11 @@ extension CatalogViewController {
     hideSearchKeyboardWhenTapped()
     searchContainer.delegate = delegate.searchContainerDelegate
     
-    contentTable.dataSource = self
-    contentTable.delegate = self
-    
+    delegateSettings()
+    tableSettings()
+  }
+  
+  func delegateSettings() {
     delegate.succes = { [weak self] resultData in
       self?.dataSource = resultData.listProducts
       self?.contentTable.reloadData()
@@ -41,14 +43,19 @@ extension CatalogViewController {
     
     delegate.update = { [weak self] in
       guard let self = self else { return }
-      let originData = self.dataSource
-      let updatedData = originData + $0.listProducts
+      let updatedData = self.dataSource + $0.listProducts
       self.contentTable.beginUpdates()
       self.dataSource = updatedData
       let indexPaths = (updatedData.endIndex - $0.listProducts.endIndex ..< updatedData.endIndex).map { IndexPath(row: $0, section: 0) }
       self.contentTable.insertRows(at: indexPaths, with: .automatic)
       self.contentTable.endUpdates()
     }
+  }
+  
+  func tableSettings() {
+    contentTable.dataSource = self
+    contentTable.delegate = self
+    contentTable.tableFooterView = UIView()
   }
 }
 
