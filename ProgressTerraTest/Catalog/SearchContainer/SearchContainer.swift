@@ -124,7 +124,11 @@ extension SearchContainer: UITextFieldDelegate {
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
-    guard let text = textField.text, !text.isEmpty else { return true }
+    
+    guard let text = textField.text, !text.isEmpty else {
+      delegate?.clearTable?()
+      return true
+    }
     delegate?.didPressReturn?(text)
     return true
   }

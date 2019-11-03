@@ -8,4 +8,5 @@
 
 final class SearchContainerDelegate {
   var didPressReturn: ((String) -> Void)?
+  var clearTable: (() -> Void)?
 }

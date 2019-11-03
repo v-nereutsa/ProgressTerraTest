@@ -49,6 +49,12 @@ extension CatalogViewController {
       self?.okAlert(title: "Ошибка \((error as NSError).code)", message: "Попробуйте позже.")
     }
     
+    delegate.delete = { [weak self] in
+      self?.productsCount.alpha = 0
+      self?.dataSource.removeAll()
+      self?.contentTable.reloadData()
+    }
+    
     delegate.update = { [weak self] in
       guard let self = self else { return }
       let updatedData = self.dataSource + $0.listProducts

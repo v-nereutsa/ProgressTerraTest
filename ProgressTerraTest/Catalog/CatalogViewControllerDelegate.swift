@@ -25,6 +25,7 @@ final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
   var succes: ((SearchResponse) -> Void)?
   var failure: ((Error) -> Void)?
   var update: ((SearchResponse) -> Void)?
+  var delete: (() -> Void)?
   
   var needToLoadNextPage: (() -> Void)?
   
@@ -39,6 +40,10 @@ final class CatalogViewControllerDelegate: CatalogControllerDelegateProtocol {
     searchContainerDelegate.didPressReturn = { [weak self] in
       print("is main thread: ", Thread.isMainThread)
       self?.loadData(for: $0)
+    }
+    
+    searchContainerDelegate.clearTable = { [weak self] in
+      self?.deleteData()
     }
     
     needToLoadNextPage = { [weak self] in
@@ -65,6 +70,10 @@ extension CatalogViewControllerDelegate {
           self?.failure?(error)
         }
     }
+  }
+  
+  func deleteData(){
+    self.delete?()
   }
   
   func loadNextPage() {
